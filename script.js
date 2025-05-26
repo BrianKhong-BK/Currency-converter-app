@@ -5,6 +5,7 @@ const toList = document.getElementById('toList');
 const curFrom = document.getElementById('curFrom');
 const curTo = document.getElementById('curTo');
 const userInput = document.getElementById('userInput');
+const outputDisplay = document.getElementById('outputDisplay');
 
 const dataArray = []
 
@@ -20,8 +21,6 @@ async function getCurrencyData() {
       value: json.eur[data]
     })
   }
-
-  console.log("trigger")
 }
 
 async function displayList(input) {
@@ -61,9 +60,19 @@ function placeInput(input, currency, currencyRate) {
 }
 
 async function convert() {
-  console.log(
-    userInput.value * (curTo.value / curFrom.value)
-  );
+  const result = (userInput.value * (curTo.value / curFrom.value)).toFixed(2)
+  outputDisplay.innerHTML = `${userInput.value} ${fromInput.value} = ${result} ${toInput.value}`
+}
+
+async function reset(){
+  fromInput.value = ""
+  toInput.value = ""
+  fromList.value = ""
+  toList.value = ""
+  curFrom.value = ""
+  curTo.value = ""
+  userInput.value = ""
+  outputDisplay.innerHTML = ""
 }
 
 getCurrencyData()
