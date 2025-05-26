@@ -1,3 +1,18 @@
+html{
+  width: 100%;
+  height: 100%;
+}
+
+body{
+  background-image: linear-gradient(rgb(37, 150, 37), rgb(22, 90, 22));
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#mainContainer{
+  border-radius: 20px;
+}
+
 #fromList, #toList {
   max-height: 200px; /* Adjust height as needed */
   overflow-y: auto;
@@ -10,3 +25,4 @@
 #curFrom, #curTo{
   display: none;
 }
+

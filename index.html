@@ -18,50 +18,53 @@
     ></script>
   </head>
   <body>
-    <h1>Currency Converter App</h1>
-    
-    
-    <label for="userInput">Amount to Convert:</label>
-    <div class="input-group mb-3">
-      <span class="input-group-text">$</span>
-      <input type="number" id="userInput" class="form-control"/>
-    </div>
-
-    <div class="d-flex mx-3">
-      <div class="input-group mb-3" style="width: 50%">
-        <span class="input-group-text" style="width: 80px">From</span>
-        <input type="text" class="form-control" disabled id="fromInput" />
-        <input type="number" class="form-control" disabled id="curFrom" />
-        <button
-          class="btn btn-secondary dropdown-toggle"
-          type="button"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-          onclick="displayList('from')"
-        ></button>
-        <ul class="dropdown-menu" id="fromList"></ul>
+    <div class="d-flex justify-content-center align-items-center vh-100">
+      <div class="container text-center" style="background-color: white;" id="mainContainer">
+        <h1 id="title">Currency Converter App</h1>
+      
+        <label for="userInput">Amount to Convert:</label>
+        <div class="input-group mb-3">
+          <span class="input-group-text">$</span>
+          <input type="number" id="userInput" class="form-control"/>
+        </div>
+  
+        <div class="d-flex mx-3">
+          <div class="input-group mb-3" style="width: 50%">
+            <span class="input-group-text" style="width: 80px">From</span>
+            <input type="text" class="form-control" disabled id="fromInput" />
+            <input type="number" class="form-control" disabled id="curFrom" />
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              onclick="displayList('from')"
+            ></button>
+            <ul class="dropdown-menu" id="fromList"></ul>
+          </div>
+  
+          <div class="input-group mb-3" style="width: 50%">
+            <span class="input-group-text text-center" style="width: 80px">To</span>
+            <input type="text" class="form-control" disabled id="toInput" />
+            <input type="number" class="form-control" disabled id="curTo" />
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              onclick="displayList('to')"
+            ></button>
+            <ul class="dropdown-menu" id="toList"></ul>
+          </div>
+        </div>
+  
+        <button class="btn btn-secondary" onclick="convert()" id="convertBtn">Convert</button>
+        <button class="btn btn-secondary" onclick="reset()" id="resetBtn">Reset</button>
+  
+        <h1 id="outputDisplay"></h1>
       </div>
-
-      <div class="input-group mb-3" style="width: 50%">
-        <span class="input-group-text text-center" style="width: 80px">To</span>
-        <input type="text" class="form-control" disabled id="toInput" />
-        <input type="number" class="form-control" disabled id="curTo" />
-        <button
-          class="btn btn-secondary dropdown-toggle"
-          type="button"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-          onclick="displayList('to')"
-        ></button>
-        <ul class="dropdown-menu" id="toList"></ul>
-      </div>
     </div>
-
-    <button onclick="convert()">Convert</button>
-    <button onclick="reset()">Reset</button>
-
-    <h1 id="outputDisplay"></h1>
-
+    
     <script src="script.js"></script>
   </body>
 </html>
