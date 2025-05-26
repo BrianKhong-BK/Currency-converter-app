@@ -1,0 +1,13 @@
+#fromList {
+  max-height: 200px; /* Adjust height as needed */
+  overflow-y: auto;
+}
+
+#toList {
+  max-height: 200px; /* Adjust height as needed */
+  overflow-y: auto;
+}
+
+#input {
+  background-color: white;
+}
