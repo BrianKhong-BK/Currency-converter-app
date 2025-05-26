@@ -2,16 +2,29 @@ const fromInput = document.getElementById('fromInput');
 const toInput = document.getElementById('toInput');
 const fromList = document.getElementById('fromList');
 const toList = document.getElementById('toList');
+const curFrom = document.getElementById('curFrom');
+const curTo = document.getElementById('curTo');
+const userInput = document.getElementById('userInput');
+
+const dataArray = []
 
 async function getCurrencyData() {
   const response = await fetch(
     'https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/eur.json'
   );
-  return await response.json();
+  const json = await response.json()
+  
+  for (const data in json.eur){
+    dataArray.push({
+      code: data,
+      value: json.eur[data]
+    })
+  }
+
+  console.log("trigger")
 }
 
 async function displayList(input) {
-  const currencyData = await getCurrencyData();
   const curArray = [
     `
     <div class="mx-3 my-2">
@@ -25,8 +38,8 @@ async function displayList(input) {
   `,
   ];
 
-  for (const currency in currencyData.eur) {
-    const curOption = `<li><a class="dropdown-item" href="#" onclick="placeInput('${input}','${currency}')">${currency}</a></li>`;
+  for (const currency of dataArray) {
+    const curOption = `<li><a class="dropdown-item" href="#" onclick="placeInput('${input}','${currency.code}',${currency.value})">${currency.code}</a></li>`;
     curArray.push(curOption);
   }
 
@@ -37,14 +50,20 @@ async function displayList(input) {
   }
 }
 
-function placeInput(input, currency) {
+function placeInput(input, currency, currencyRate) {
   if (input === 'from') {
     fromInput.value = `${currency}`;
+    curFrom.value = `${currencyRate}`;
   } else {
     toInput.value = `${currency}`;
+    curTo.value = `${currencyRate}`;
   }
 }
 
-function convert() {
-  
+async function convert() {
+  console.log(
+    userInput.value * (curTo.value / curFrom.value)
+  );
 }
+
+getCurrencyData()

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Home</title>
+    <title>Currency Converter App</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="styles.css" />
@@ -19,13 +19,19 @@
   </head>
   <body>
     <h1>Currency Converter App</h1>
-    <label for="">Amound to Convert:</label>
-    <input type="number" />
+    
+    
+    <label for="userInput">Amount to Convert:</label>
+    <div class="input-group mb-3">
+      <span class="input-group-text">$</span>
+      <input type="number" id="userInput" class="form-control"/>
+    </div>
 
     <div class="d-flex mx-3">
       <div class="input-group mb-3" style="width: 50%">
         <span class="input-group-text" style="width: 80px">From</span>
         <input type="text" class="form-control" disabled id="fromInput" />
+        <input type="number" class="form-control" disabled id="curFrom" />
         <button
           class="btn btn-secondary dropdown-toggle"
           type="button"
@@ -39,6 +45,7 @@
       <div class="input-group mb-3" style="width: 50%">
         <span class="input-group-text text-center" style="width: 80px">To</span>
         <input type="text" class="form-control" disabled id="toInput" />
+        <input type="number" class="form-control" disabled id="curTo" />
         <button
           class="btn btn-secondary dropdown-toggle"
           type="button"
@@ -50,7 +57,7 @@
       </div>
     </div>
 
-    <button>Convert</button>
+    <button onclick="convert()">Convert</button>
     <button>Reset</button>
 
     <script src="script.js"></script>
